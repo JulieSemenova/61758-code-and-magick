@@ -630,6 +630,10 @@ input[type=radio]:checked + .review-mark-label {
   outline: none;
 }
 
+.setup-user-name:invalid {
+  border: 2px solid red;
+}
+
 .setup-close {
   float: right;
 
