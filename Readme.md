@@ -1,7 +1,5 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
-* Студент: [Алексей Енот](http://up.htmlacademy.ru/javascript/10/user/61758).
-* Наставник: [Игорь Алексеенко](http://up.htmlacademy.ru/javascript/10/user/100868).
 
 ---
 
