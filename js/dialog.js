@@ -22,6 +22,8 @@
 	var closePopup = function() {
 	  setup.classList.add('hidden');
 	  document.removeEventListener('keydown', onPopupEscPress);
+	  setup.style.top = '';
+	  setup.style.left = '';
 	};
 
 	setupOpen.addEventListener( 'click', function() {
@@ -46,12 +48,11 @@
 
 	dialogHandle.addEventListener( 'mousedown', function(evt) {
 		evt.preventDefault();
-		
 		var startCoords = {
 			x: evt.clientX,
 			y: evt.clientY
 		};
-		
+
 		var onMouseMove = function (moveEvt) {
 		    moveEvt.preventDefault();
 
@@ -67,17 +68,19 @@
 
 		    setup.style.top = (setup.offsetTop - shift.y) + 'px';
 		    setup.style.left = (setup.offsetLeft - shift.x) + 'px';
+  
 	    };
-
 	    var onMouseUp = function (upEvt) {
     		upEvt.preventDefault();
 
     		document.removeEventListener('mousemove', onMouseMove);
     		document.removeEventListener('mouseup', onMouseUp);
-  		};
+
+   		};
 
 		document.addEventListener('mousemove', onMouseMove);
 		document.addEventListener('mouseup', onMouseUp);
+
 	});
 
 	
@@ -85,12 +88,16 @@
 
 	shopElement.addEventListener('dragstart', function (evt) {
  		if (evt.target.tagName.toLowerCase() === 'img') {
-    		draggedItem = evt.target;
+    		draggedItem = evt.target.cloneNode(true);
     		evt.dataTransfer.setData('text/plain', evt.target.alt);
   		}
+  		artifactsElement.style.outline = '2px dashed red';
 	});
 
 	artifactsElement.addEventListener('dragover', function (evt) {
+		if (evt.target.draggable) {
+			evt.target.style.backgroundColor = 'red';
+		}
 		evt.preventDefault();
 		return false;
 	});
@@ -99,6 +106,7 @@
 		  evt.target.style.backgroundColor = '';
 		  evt.target.appendChild(draggedItem);
 		  evt.preventDefault();
+		  artifactsElement.style.outline = '';
 	});
 
 	artifactsElement.addEventListener('dragenter', function (evt) {
