@@ -5,13 +5,9 @@
 	var setupOpen = document.querySelector('.setup-open');
 	var setupClose = document.querySelector('.setup-close');
 	var dialogHandle = setup.querySelector('.setup-title');
-	var artifactsElement = document.querySelector('.setup-artifacts');
-	var shopElement = document.querySelector('.setup-artifacts-shop');
 
 	var onPopupEscPress = function(evt) {
-	  if (evt.keyCode === ESC_KEYCODE) {
-	    closePopup();
-	  }
+	    window.util.isEscEvent(evt, closePopup);
 	};
 
 	var openPopup = function() {
@@ -31,9 +27,7 @@
 	});
 
 	setupOpen.addEventListener( 'keydown', function(evt) {
-	  if (evt.keyCode === ENTER_KEYCODE) {
-	    openPopup();
-	  }
+	  window.util.isEscEvent(evt, openPopup);
 	});
 
 	setupClose.addEventListener( 'click', function() {
@@ -41,9 +35,7 @@
 	});
 
 	setupClose.addEventListener( 'keydown', function(evt) {
-	  if (evt.keyCode === ENTER_KEYCODE) {
-	    closePopup();
-	  }
+	  iwindow.util.isEscEvent(evt, closePopup);
 	});
 
 	dialogHandle.addEventListener( 'mousedown', function(evt) {
@@ -80,6 +72,7 @@
 
 		document.addEventListener('mousemove', onMouseMove);
 		document.addEventListener('mouseup', onMouseUp);
+<<<<<<< HEAD
 
 	});
 
@@ -118,5 +111,11 @@
 	  evt.target.style.backgroundColor = '';
 	  evt.preventDefault();
 	});
+=======
+
+	});
+
+	
+>>>>>>> bd5b8d50038b5c791c69be91a0652d675048da00
 
 })();
