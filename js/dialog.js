@@ -4,7 +4,7 @@
 	var setup = document.querySelector('.setup');
 	var setupOpen = document.querySelector('.setup-open');
 	var setupClose = document.querySelector('.setup-close');
-	var dialogHandle = setup.querySelector('.setup-title');
+	var dialogHandle = setup.querySelector('.setup-user-pic');
 
 	var onPopupEscPress = function(evt) {
 	    window.util.isEscEvent(evt, closePopup);
@@ -27,7 +27,7 @@
 	});
 
 	setupOpen.addEventListener( 'keydown', function(evt) {
-	  window.util.isEscEvent(evt, openPopup);
+	  window.util.isEnterEvent(evt, openPopup);
 	});
 
 	setupClose.addEventListener( 'click', function() {
@@ -35,7 +35,7 @@
 	});
 
 	setupClose.addEventListener( 'keydown', function(evt) {
-	  iwindow.util.isEscEvent(evt, closePopup);
+	  window.util.isEscEvent(evt, closePopup);
 	});
 
 	dialogHandle.addEventListener( 'mousedown', function(evt) {
@@ -72,5 +72,6 @@
 
 		document.addEventListener('mousemove', onMouseMove);
 		document.addEventListener('mouseup', onMouseUp);
+	});
 
 })();
