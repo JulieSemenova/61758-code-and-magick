@@ -19,6 +19,6 @@ window.util = (function () {
 
   	getRandomNumber: function (min, max) {
 	  return Math.floor(min + Math.random() * (max - min + 1));
-	}
+	  }
   };
 })();
